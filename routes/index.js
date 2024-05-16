@@ -31,8 +31,17 @@ let validator = function (req, res, next) {
     }
 }
 
+// A middleware to check availability
+let available = async function (req, res, next) {
+    if (await Shortener.findOne({ shortenedUrl: req.body.aliasInput })) {
+        res.status(400).render('not-available');
+    } else {
+        next();
+    }
+}
+
 /* POST new url shortener from home page */
-router.post('/', validator, async (req, res, next) => {
+router.post('/', validator, available, async (req, res, next) => {
     const shortener = new Shortener({
         originalUrl: req.body.urlInput, 
         shortenedUrl: req.body.aliasInput
