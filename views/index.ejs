@@ -80,7 +80,7 @@
                 <tr>
                     <td><a href="<%= url.originalUrl %>" target="_blank"><%= url.originalUrl %></a></td>
                     <td><a href="/<%= url.shortenedUrl %>" target="_blank"><%= domain %><%= url.shortenedUrl %></a></td>
-                    <form id="deleteUrl" method="DELETE" action="/:<%= url._id %>"></form>
+                    <form id="deleteUrl" method="GET" action="/<%= url._id %>/delete">
                         <td><button type="submit">Delete</button></td>
                     </form>
                 </tr>

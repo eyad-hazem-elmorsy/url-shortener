@@ -50,7 +50,8 @@ router.post('/', validator, available, async (req, res, next) => {
     res.redirect('/');
 });
 
-router.delete('/:Id', async (req, res, next) => {
+router.get('/:Id/delete', async (req, res, next) => {
+    console.log(req.params.Id);
     await Shortener.findByIdAndDelete(req.params.Id);
     res.redirect('/');
 });
