@@ -23,11 +23,11 @@ router.get('/', async function (req, res, next) {
 
 // A middleware to validate alias
 let validator = function (req, res, next) {
-    const regex = /^[a-zA-Z0-9_]{4, }$/;
-    if (regex.test(req.body.aliasInput)) {
+    const regex = /^[a-zA-Z0-9_]+$/;
+    if (req.body.aliasInput.length > 3 && regex.test(req.body.aliasInput)) {
         next();
     } else {
-        res.render('invalid');
+        res.status(400).render('invalid');
     }
 }
 
