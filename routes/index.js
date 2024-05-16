@@ -17,6 +17,7 @@ router.get('/:alias', async function (req, res, next) {
 router.get('/', async function (req, res, next) {
     const urls = await Shortener.find({});
     res.locals.urls = urls;
+    res.locals.domain = `${req.protocol}://${req.get('host')}/`;
     res.render('index', { title: 'Express' });
 });
 
