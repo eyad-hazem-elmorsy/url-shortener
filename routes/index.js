@@ -50,4 +50,9 @@ router.post('/', validator, available, async (req, res, next) => {
     res.redirect('/');
 });
 
+router.delete('/:Id', async (req, res, next) => {
+    await Shortener.findByIdAndDelete(req.params.Id);
+    res.redirect('/');
+});
+
 module.exports = router;
