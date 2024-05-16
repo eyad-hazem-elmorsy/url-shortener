@@ -21,8 +21,18 @@ router.get('/', async function (req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+// A middleware to validate alias
+let validator = function (req, res, next) {
+    const regex = /^[a-zA-Z0-9_]{4, }$/;
+    if (regex.test(req.body.aliasInput)) {
+        next();
+    } else {
+        res.render('invalid');
+    }
+}
+
 /* POST new url shortener from home page */
-router.post('/', async (req, res, next) => {
+router.post('/', validator, async (req, res, next) => {
     const shortener = new Shortener({
         originalUrl: req.body.urlInput, 
         shortenedUrl: req.body.aliasInput
