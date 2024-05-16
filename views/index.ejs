@@ -74,11 +74,13 @@
             <tr>
                 <th>Original URL</th>
                 <th>Shortened URL</th>
+                <th>Action</th>
             </tr>
             <% for (url of urls) { %>
                 <tr>
                     <td><a href="<%= url.originalUrl %>" target="_blank"><%= url.originalUrl %></a></td>
                     <td><a href="/<%= url.shortenedUrl %>" target="_blank"><%= domain %><%= url.shortenedUrl %></a></td>
+                    <td><button onclick="deleteUrl('<%= url.shortenedUrl %>')">Delete</button></td>
                 </tr>
             <% } %>
         </table>
