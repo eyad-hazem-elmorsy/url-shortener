@@ -3,8 +3,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
+const dbUrl = 'mongodb://localhost:27017/url-shortener'
 
 const app = express();
 
@@ -35,5 +37,14 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
+// Connect to database
+mongoose.connect(dbUrl)
+    .then(() => {
+        console.log('Connected to database');
+    })
+    .catch((err) => {
+        console.log(err.message);
+    })
 
 module.exports = app;
