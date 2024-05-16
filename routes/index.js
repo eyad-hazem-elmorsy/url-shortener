@@ -2,7 +2,9 @@ const router = require('express').Router();
 const Shortener = require('../models/shortener');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', async function (req, res, next) {
+    const urls = await Shortener.find({});
+    res.locals.urls = urls;
     res.render('index', { title: 'Express' });
 });
 
