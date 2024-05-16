@@ -9,7 +9,7 @@ router.get('/:alias', async function (req, res, next) {
         const originalUrl = url.originalUrl;
         res.redirect(originalUrl);
     } else {
-        res.status(404).send('Not Found');
+        res.status(404).send('404 Not Found');
     }
 });
 
