@@ -1,46 +1,66 @@
-# URL Shortener App
 
-This is starter code for URL Shortener Project.
+# URL Shortener
 
-Fork this repository and use the given files to start with.
+A URL shortener application that allows users to convert long URLs into shorter, more manageable links.
 
-## Idea
+## Features
 
-A URL shortener website is a service that converts long website addresses into shorter, more manageable links. Users input a lengthy URL, and the website generates a condensed version, making it easier to share and remember.
+- **URL Shortening**: Convert long URLs into short, easy-to-share links.
+- **Custom Aliases**: Optionally create custom aliases for shortened URLs.
+- **Redirects**: Redirect short URLs to their original long URLs.
+- **URL History**: Display a list of previously shortened URLs.
+- **Delete URLs**: Delete existing shortened URLs.
+- **Alias Validation**: Prevent the use of an alias if it already exists.
+- **Alias Restrictions**: Restrict special characters in aliases, allowing only alphanumeric characters and underscores (`_`).
 
-## Interface
+## Installation
 
-The application interface consists of one page which contains:
+### Prerequisites
 
-* A form to shorten the URL, which takes two inputs:
-    - the long version of the url
-    - the alias of the url (defaults to a random string)
-* A table which contains the previously shortened URLs.
+- Node.js
+- MongoDB
 
-## Short URLs
+### Steps
 
-The short URLs are written in this form:
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/eyad-hazem-elmorsy/url-shortener.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd url-shortener
+    ```
+3. Install the dependencies:
+    ```bash
+    npm install
+    ```
+4. Start the application:
+    ```bash
+    npm start
+    ```
 
-```
-http://localhost:3000/{alias}
-```
+## Usage
 
-## Application Logic
+1. Open your browser and go to `http://localhost:3000`.
+2. Enter the long URL you wish to shorten.
+3. Provide a custom alias.
+4. Click "Shorten" to generate the short URL.
+5. Use the short URL to redirect to the original long URL.
+6. Manage your URLs, including deleting them and checking for alias availability.
 
-* When a client tries to access the short URL, they should be redirected to the original long URL.
-* If the client accesses a URL which doesn't exist, a `404` error should be displayed.
-* There's no required authentication or authorization to generate short URLs.
+## Project Structure
 
-## Project Criteria
+- `bin/`: Application entry point.
+- `models/`: URL schema definition.
+- `routes/`: Route definitions.
+- `views/`: EJS templates for rendering.
+- `app.js`: Main application file.
+- `package.json`: Project metadata and dependencies.
 
-- [ ] The application runs locally without any crashes
-- [ ] The application logic is implemented correctly
-- [ ] The application uses server-side rendering
-- [ ] The application uses a MongoDB database
+## Contributing
 
-## Project Evaluation (50 pts.)
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-* Project Completeness (25 pts.)
-* Clean Code and Modulation (15 pts.)
-* Descriptive Git Commit Messages (10 pts.)
-* Nice touches (5 pts. bonus)
+---
+
+Developed by [Eyad Hazem](https://github.com/eyad-hazem-elmorsy/).
